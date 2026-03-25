@@ -1,6 +1,14 @@
-# TooSharpe Institutional Dashboard
+# Large-Scale Data Processing & Analytics System
 
-An institutional-grade performance analytics dashboard for the TooSharpe fund portfolio.
+## Overview
+A scalable Python system for end-to-end data processing, analytical computation, and interactive visualization.
+
+The system is designed with a layered architecture that integrates multi-source data ingestion, feature engineering, computational analytics, and a user-facing dashboard, enabling reproducible and extensible workflows for large-scale data analysis.
+
+## Key Components
+- Data Pipeline: multi-source ingestion, cleaning, and integration
+- Analytics Engine: computational modules for performance metrics, attribution modeling, and liquidity estimation
+- Visualization Layer: Streamlit-based interactive dashboard
 
 ## Features
 
@@ -8,6 +16,29 @@ An institutional-grade performance analytics dashboard for the TooSharpe fund po
 - **Liquidity Analysis**: Monitor liquidity metrics and position-level liquidity
 - **Risk & Attribution**: Analyze sector exposures, market cap distribution, and return attribution
 - **PDF Reports**: Generate comprehensive institutional reports
+
+## System Design
+
+The system follows a layered architecture:
+
+- Data Layer: raw CSV inputs → cleaned datasets
+- Processing Layer: feature engineering & metric computation
+- Intermediate Layer: analytics-ready dataset (parquet/csv)
+- Application Layer: interactive dashboard (Streamlit)
+
+Design focus:
+- scalability for large datasets
+- modular analytics functions
+- reproducibility of computation pipeline
+
+This architecture decouples data ingestion, computation, and presentation layers, allowing independent scaling and modification of each component without affecting the overall system.
+
+## Design Challenges
+
+- Handling heterogeneous financial datasets with inconsistent schemas and missing values
+- Designing a reusable intermediary data layer to decouple raw data ingestion from analytics computation
+- Ensuring numerical stability in return and attribution calculations across time-series data
+- Maintaining scalability for increasing data volume and multi-account portfolio aggregation
 
 ## Getting Started
 
@@ -160,7 +191,7 @@ The pipeline processes raw CSV files through several stages:
 
 ### 2. Streamlit Dashboard
 
-The dashboard provides three analysis levels:
+The dashboard provides two analysis levels:
 
 - **Fund Level**: Aggregate analysis across all accounts
 - **Account Level**: Detailed analysis for one or more selected accounts
